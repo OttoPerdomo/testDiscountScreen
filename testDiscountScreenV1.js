@@ -5,9 +5,8 @@ import {
     getDiscountProductsByCarnetId,
   } from './dataLogic.js';
   
-  // (Opcional) Si tienes una función mapNewContentToData:
-  import { mapNewContentToData } from './mapper.js'; 
-  // Ajusta la ruta a donde tengas tu "mapNewContentToData"
+  // Elimina o comenta esta línea si no tienes el archivo:
+  // import { mapNewContentToData } from './mapper.js';
   
   async function main() {
     try {
@@ -39,21 +38,14 @@ import {
       const products = await getDiscountProductsByCarnetId(activeCarnet.id);
       console.log(`Productos del carnet ${activeCarnet.id}:`, products);
   
-      // 5) "DiscountHeader" → mapNewContentToData(sections.data[0].attributes.content) (por ejemplo)
-      // Suponiendo que "sections" sea algo como { data: [ { attributes: { content: [...] } } ] }
-      const contentArray = sections?.data?.[0]?.attributes?.content ?? [];
-      const mappedContent = mapNewContentToData
-        ? mapNewContentToData(contentArray)
-        : contentArray;
+      // 5) (Opcional) Si no tienes mapNewContentToData, omite su uso
+      // const contentArray = sections?.data?.[0]?.attributes?.content ?? [];
+      // console.log('Contenido de la sección (header):', contentArray);
   
-      console.log('Contenido mapeado (DiscountHeader):', mappedContent);
-  
-      // Simulamos que la pantalla final mostraría:
       console.log(`
         ---------------
         Simulación DiscountScreen
         ---------------
-        Header: ${JSON.stringify(mappedContent, null, 2)}
         Carnets: ${JSON.stringify(carnetList, null, 2)}
         Products (activeIndex=0 => id=${activeCarnet.id}):
         ${JSON.stringify(products, null, 2)}
