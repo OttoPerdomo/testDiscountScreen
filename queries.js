@@ -327,37 +327,4 @@ query Sections($slug: String) {
 	}
 }
 `;
-export const discounts = `
-query Sections($slug: String){
-	sections(filters: {slug:{eq:$slug}}){
-		data{
-			attributes{
-				title,
-				content {
-				 __typename
-				 ... on ComponentPageComponentsHeaderText {
-					id
-					Text
-					Header
-                 }
-				 __typename
-				 ... on ComponentHomeComponentsPageCard {
-					id
-					header
-					content
-					url
-					icon{
-						data{
-							attributes{
-								url
-							}
-						}
-					}
-				}
-				}
-				
-			}
-		}
-	}
-}
-`;
+
