@@ -1,0 +1,13 @@
+{
+  "name": "testDiscountScreen",
+  "version": "1.0.0",
+  "description": "Pruebas de DiscountScreen en Node.js",
+  "type": "module",
+  "main": "testDiscountScreen.js",
+  "scripts": {
+    "start": "node testDiscountScreen.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.1"
+  }
+}
